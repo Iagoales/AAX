@@ -1,7 +1,28 @@
 Exercise 1
-We have obtained the plot requested
+Two access points (AP_A and AP_B) are shown in this picture serving the corresponding stations (STA_AI and STA_B1) in a wireless network simulation. 
+It displays signal strengths, coverage areas, and interference areas (59.65 dBm near AP_A). 
+With negligible packet loss and balanced airtime utilization (~50%), both WLANs achieve comparable throughput (~21 Mbps). Areas of AP-AP and AP-STA interference are highlighted in the simulation.
+
 Exercise 2
+The temporal throughput (in Mbps) for two access points (AP_A and AP_B) running in monitor mode is displayed in this line graph during a period of 100 seconds. 
+The throughput of both APs varies, typically falling between 18 and 26 Mbps. The variability of AP_A (blue) is somewhat higher than that of AP_B (orange). 
+The y-axis shows throughput, and the x-axis shows time in seconds. The two access points under comparison are distinguished by the legend.
+
 Exercise 3
+Using the ε-greedy method, this graphic displays the temporal throughput (in Mbps) of two access points (AP_A and AP_B) over time (in seconds). 
+The ε-greedy algorithm optimizes network performance by striking a balance between exploration and exploitation. As the system dynamically chooses the optimal AP, the graph probably compares the variations in throughput for each AP. 
+Changes in network circumstances or algorithmic choices are shown by peaks and dips. The objective is to adjust to real-time needs while optimizing overall throughput.
+
 Exercise 4
+Using softmax for data representation, this picture seems to be a temporal throughput graph comparing two nodes, AP_A and AP_B. 
+Time is displayed in seconds on the x-axis, and throughput is displayed in Mbps on the y-axis. The "Timeplot" values (35, 30, 25, and 20 Mbps) most likely represent certain benchmarks or throughput levels. 
+Performance comparison is made possible by the graph, which shows how the throughput of both nodes changes over time. Throughput numbers that are normalized or probabilistic are recommended by the softmax annotation.
+
 Exercise 5
+The throughput (Mips), timeplot (s), and performance metrics (AP_A and AP_B) for the two algorithms—E-greedy and softmax—seem to be compared in this image. 
+The "OUT function ping-softmax" indicates a softmax technique output or transition. Over time, the side-by-side comparison probably reveals variations in the two methods' effectiveness or behavior.
+
 Exercise 6
+The picture contrasts the mean reward performance of the Softmax and ε-greedy strategies in three different circumstances (A, B, and C). 
+In every situation, ε-greedy performs better than Softmax, with scenario A yielding the largest reward (38.52). In scenario A, Softmax performs the best at 37.83, but it is not as good as ε-greedy. 
+Variability is evident in both techniques, with ε-greedy consistently yielding more rewards. According to the graph, ε-greedy performs better in these test scenarios.
