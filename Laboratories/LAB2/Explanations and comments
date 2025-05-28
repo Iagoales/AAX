@@ -1,7 +1,7 @@
 Exercise 1
 
 We have read the csv file noticing the first row and column of the file are the labels so we make sure they are not taken into account.
-Then for the data split we have decided to have 70% as training (first split), and then the 30% remaining is split evenly between test and validation (15% each).
+Then for the data split we have decided to have 70% as training (first split), and then the 30% remaining in validation.
 
 Exercise 2
 
