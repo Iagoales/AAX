@@ -1,7 +1,33 @@
-Overall explanation
-
 Exercise 1
+
+We have read the csv file noticing the first row and column of the file are the labels so we make sure they are not taken into account.
+Then for the data split we have decided to have 70% as training (first split), and then the 30% remaining is split evenly between test and validation (15% each).
+
 Exercise 2
+
+We have chosen to use the Random Forest Classifier as our ML model as it can handle non linearity and is robust to overfitting.
+As proven by the training results where the accuracy turn out to be very close to 1 (in validation:0.9973333333333333 , in test:0.9986666666666667) so we believe the model choosed is the correct one.
+
 Exercise 3
+
+To define which parameters we are going to use for the model what we are going to is finding the optimal hyperparameters, that are agrupated in a list that consist of:
+the number of parameters,
+the maximum depth,
+the minimum sample split,
+the minimum soamples in the leafs and 
+the maximum number of features.
+For this we assign them a random integer from a range, and then we perform the operation to find the optimal ones taking into account the running time.
+We limited it to 10 iteration using 3 fold-cross validation and using the roc curve.
+
 Exercise 4
+
+We run the Random Forest Cassifier taking into accoint the best parameters that were obtained in the previous exercise.
+Then we plot the learning curves of the algorithm using the loss values obtained.
+
 Exercise 5
+
+We define the evaluation metrics we are more familiar with.
+
+Exercise 6
+
+We use the evaluation metrics defined in the exercise above and we obtain satisfactory results.
