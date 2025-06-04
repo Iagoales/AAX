@@ -31,3 +31,30 @@ We define the evaluation metrics we are more familiar with.
 Exercise 6
 
 We use the evaluation metrics defined in the exercise above and we obtain satisfactory results.
+
+
+
+Explanation of the chosen algorithm (RandomForest)
+Random Forest constructs several decision trees and aggregates their predictions for increased robustness and accuracy. 
+To guarantee diversity, it employs random feature selection at each split and bagging (bootstrap sampling) to train each tree on a distinct sample of data.
+It uses majority voting to aggregate results for categorization and averages predictions for regression.
+We have chosen this method because to its ability to handle missing data, provide feature importance rankings, and prevent overfitting.
+It performs effectively on big datasets, needs little preparation, and works well with high-dimensional data.
+
+Explanation of why we chose the 70/30 split
+A 70-30 train-validation split is a commonly used technique that successfully balances model evaluation and training.  
+The model has enough samples to discover significant patterns thanks to the 70% of the data set set set aside for training, and the 30% validation set guarantees accurate performance evaluation.  For medium-sized datasets, where cross-validation may be computationally costly without appreciably increasing accuracy, this division is very beneficial.
+Reproducibility is ensured by using random_state=42, which is a crucial prerequisite in both industry and research to assure consistent outcomes across experiments.  Furthermore, stratified sampling (with stratify=y) can be used to preserve proportionate class distribution in both subsets if the dataset has class imbalances.
+
+Why we chose the metrics we chose:
+Accuracy was selected as the main statistic in this research because to the dataset's balance, which makes it a trustworthy representation of overall performance. 
+However, precision and recall were also included because accuracy alone might be deceptive if there are class disparities.  
+Precision gauges the model's capacity to steer clear of false positives, which is crucial in applications such as fraud detection where it can be costly to flag a transaction incorrectly.  Conversely, recall makes sure the model records as many genuine positives as possible, which is crucial for medical diagnosis since a false negative could be fatal. 
+When trade-offs between precision and recall must be taken into account, the F1 score offers a balanced perspective by providing a harmonic mean of the two.
+Finally, the confusion matrix gives a  breakdown of errors, helping identify whether misclassifications are symmetric or biased toward a specific class.
+
+Results and conclusions
+On training and validation data, the model performs almost flawlessly, attaining 100% and about 99.9% accuracy, respectively. 
+Despite being remarkable, this raises the possibility of overfitting because the model might have learned training patterns by heart rather than generalizable rules.  This suspicion is supported by the test set findings (93.99% accuracy), which show a decline in performance when exposed to unseen material. 
+Notably, the model has a propensity to over-predict class "1" and produce false positives, as evidenced by its high recall (1.00) and low precision (0.8966).  This can be the result of bias in feature representation or changes in the distribution of data between training and test sets. 
+Techniques including adversarial validation, threshold adjustment, and regularization should be investigated in order to increase robustness.
