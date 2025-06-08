@@ -1,0 +1,30 @@
+Explanations and Comments on Seminar 1
+
+Fist of all we load the data knowing that the data is separated by a space we use the space delimeter to obtain all the different features of the dataset of whom we print the head.
+
+After that we calculate the mean of the most important features and also the standard deviation.
+
+Then for alll the atributes we did a histogram of them and then to see the relation between them we decided to use a correlation heatmap, we have chosen the correlation heatmap because of its:
+Quick Overview of Relationships: It gives an immediate visual impression of which variables are strongly related, saving time compared to checking each pair numerically.
+Feature Selection and Engineering: Helps in identifying redundant features (e.g., Total Airtime and Proportional Airtime) and avoiding multicollinearity in predictive modeling.
+Pattern Recognition: Easy to detect groups of interrelated features (e.g., RSSI metrics) that may be influenced by the same underlying factors.
+
+Regarding the normalization of the dataset we have used 2 methods, the first is the interquartile range and also the normalization taking into account the mean and standard deviation calculated before, overall our code help us clean the 
+dataset by removing outliers, standardizes values for fair comparison and optimal ML performance prepares data for training/testing in a reproducible and consistent way and ensures data integrity and model reliability, especially when 
+scaling or transforming is necessary.
+
+Then we split the dataset, we have chosena  80/20 split as it offers a balanced trade-off between learning and evaluating, ensuring the model has enough data to learn patterns while still being tested on unseen data. It helps detect 
+overfitting and provides a quick, efficient way to benchmark model performance. Especially useful with large datasets, the 80/20 split is simple to implement and computationally efficient compared to more complex methods like cross-
+validation. However, for small or imbalanced datasets, alternative techniques may be more reliable. Overall, the 80/20 split remains a practical starting point for data-driven modeling and evaluation.
+
+For the model we have chosen to use the Linear regression, it works by fitting a straight line to the data that best predicts the output variable based on the input features. The goal is to find the line (or hyperplane in multiple 
+dimensions) that minimizes the difference between actual and predicted values. Its major advantage of linear regression is its simplicity and ease of interpretation, making it ideal for understanding the impact of individual variables. It 
+is also computationally efficient and performs well when the relationship between variables is approximately linear. Additionally, it provides a good baseline for comparison with more complex models in many predictive modeling tasks.
+
+For analyzing the results of the model we have chosen the MSE (Mean Squared Error) measures the average squared difference between predicted and actual values, making it sensitive to large errors—ideal for regression tasks. R² (coefficient 
+of determination) indicates how much variance in the target is explained by the model. Together, they provide a comprehensive view of performance: MSE quantifies accuracy, while R² shows explanatory power, making them highly reliable and 
+interpretable evaluation tools.
+
+Finally, for the interpretation of the results we have that the linear regression model performs very well. In the Actual vs Predicted plot, the data points closely follow the diagonal, indicating strong agreement between true and predicted values. The Residuals Distribution plot shows a roughly normal distribution centered around zero, which is a good sign—suggesting the model's errors are small, unbiased, and random.
+The train MSE (0.0233) and validation MSE (0.0234) are nearly identical and very low, indicating minimal error in predictions and no sign of overfitting. Similarly, the R² scores—0.9768 for training and 0.9765 for validation—are close to 1.0, meaning the model explains around 97.6% of the variance in the data. This reflects a highly accurate fit.
+Overall, these results confirm that the model generalizes well to unseen data and that linear regression is an appropriate and effective choice for this problem.
