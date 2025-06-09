@@ -11,3 +11,6 @@ efficient. Combined with confusion matrices and visualization tools, these techn
 The SVM model achieved 85% test accuracy with well-balanced precision and recall across five pose classes. PCA reduced features from 270 to 33 while preserving 95% variance, improving efficiency. Cross-validation (88.85%) confirmed strong generalization, though Class 
 2 (F1=0.82) and Class 3 (F1=0.81) showed minor confusion. The optimal RBF kernel with C=100 effectively learned WiFi signal patterns. While performance is robust, targeted improvements for confused classes—such as feature engineering or additional data—could further 
 enhance results. Overall, the model demonstrates reliable pose recognition.
+
+The model uses accuracy (85%) for overall performance, precision (correct positive predictions), and recall (true positives detected).
+The F1-score balances both, revealing class-specific effectiveness (e.g., Class 5: 0.88). These metrics ensure reliable pose detection, identify weak classes (like Class 2: 0.82), and guide improvements for real-world usability in WiFi-based monitoring systems.
