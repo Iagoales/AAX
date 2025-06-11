@@ -1,0 +1,17 @@
+Visualizing data with histograms, boxplots, correlation heatmaps, and plots of correlation features are essential for understanding and communicating the structure and relationships within datasets, I chose this methods as they are the ones I have more experience with and of whom I can get a better understanding of the dataset.
+RSSI and link speeds show moderate negative correlations with latency (-0.38, -0.33, -0.36), suggesting better signals reduce delays. Throughput correlations are negligible. LocationNumber weakly affects latency (0.32). The findings highlight that optimizing signal strength and link speeds is more crucial for latency than throughput, though other factors may also influence performance.
+
+The purpose of the second part is to construct a multi-output neural network regression model that uses four input features to forecast two continuous objectives (TxThroughput and AvgPingLatency). Every element is chosen with care to guarantee generalization, efficiency, and resilience.
+
+Data Preparation: To assess model performance on unseen samples and avoid overfitting, the dataset is divided into 80% training and 20% testing data. In order to ensure stable and quicker neural network convergence, feature scaling with StandardScaler normalizes inputs to zero mean and unit variance. In order to help the model develop balanced weights, scaling the output variables is equally important, particularly when objectives have different units (e.g., Mbps vs. milliseconds).
+Model Architecture: The neural network consists of three hidden layers (64 → 32 → 16 neurons) with ReLU activation, which avoids vanishing gradients and speeds up training. Batch normalization stabilizes learning by normalizing layer outputs, while dropout (30%) prevents overfitting by randomly disabling neurons during training.
+Training & Optimization: The Adam optimizer dynamically adjusts learning rates for efficient convergence. Early stopping halts training if validation loss plateaus, avoiding unnecessary computation, while learning rate reduction fine-tunes weights when progress stalls.
+Evaluation: Performance is assessed using MAE, MSE, and R², providing insights into prediction accuracy, error magnitude, and variance explanation. True vs. predicted plots visually validate model performance, detecting biases or systematic errors.
+The training results show that the model performs exceptionally well, attaining high predicted accuracy and low error rates. The original-scale MAEs (8.40 for TxThroughput, 3.46 for AvgPingLatency) validate practical usage, while the Test MSE (0.0145) and MAE (0.0957) on scaled data show strong generalization. The efficiency of the model is validated by the high R2 scores (0.984 and 0.986), which indicate that it explains almost all of the variance in both goals.
+
+
+After about 30 epochs, training stabilized and validation loss steadily decreased, suggesting appropriate learning without overfitting. Although validation measurements plateaued later, indicating diminishing results, the learning rate drop at epoch 74 assisted in fine-tuning weights.
+
+
+These findings support the model's dependability for multi-output regression tasks, which may find use in real-time QoS prediction or network optimization. Reducing the already low mistakes could be the main goal of additional tuning.
+
