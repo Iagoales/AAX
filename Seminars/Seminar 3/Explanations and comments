@@ -1,0 +1,14 @@
+The K-means algorithm implemented in this code performs unsupervised clustering on WiFi signal strength (RSSI) data from three access points. The NumPy-based implementation follows three key phases: initialization, iterative optimization, and output.
+During initialization, the algorithm selects three initial centroids randomly (with a fixed seed for reproducibility). The iterative phase alternates between assigning points to the nearest centroid (using Euclidean distance) and updating centroids as cluster means, with safeguards against empty clusters. Convergence is achieved when cluster assignments stabilize, triggering early stopping instead of running all 100 planned iterations.
+The final output includes the optimized centroids and iteration count, with a 3D visualization revealing distinct clusters in signal space, potentially corresponding to different physical zones. This manual implementation demonstrates core machine learning concepts—distance metrics, convergence checks, and vectorized operations—without relying on high-level libraries like scikit-learn. Potential applications include indoor localization and network optimization, where clustering helps identify spatial patterns in WiFi signal strengths. The approach balances computational efficiency with educational clarity, showcasing how K-means groups data based on similarity.
+
+Regarding the results, I was not satisfied with the accuracy that the model was having so I tried different approaches, the confusion matrix suggested that we had 5 classes that we wanted to classificate so I went on trying the different approaches specially I tried to focus on the initialization first, where I tried different approaches such as initializing it to 0, or having the values of convergence but neither of this options gave me a better result, so I went to change the number of clusters that finally give me some real difference, I went trying from 2 to 10 and the best result is with 6 clusters that give a severe increase of the accuracy and achieves convergence after 34 iterations, with the highest values of accuracy being 86.12%
+
+
+
+
+
+
+
+
+
