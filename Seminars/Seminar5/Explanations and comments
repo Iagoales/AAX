@@ -1,0 +1,18 @@
+The neural network itself is deep, with several layers that gradually reduce the feature size from 270 down to 12 output classes. It uses batch normalization and dropout at each layer to help the model generalize and avoid overfitting, and it starts with Xavier initialization for more reliable training.
+
+During training, the system randomly picks 7 out of 10 clients for each round. Each selected client trains the model locally for 15 epochs, using a loss function that pays extra attention to classes that are harder to learn. After local training, the server combines the updates from all clients, weighting them by how much data each client has. It also uses momentum, which means a small part of the previous global model is kept in each update to make training smoother.
+
+Key improvements include:
+Ensuring all pose classes are learned, even if some clients have missing data.
+Skipping batch normalization when a client has only one sample, preventing errors.
+Using momentum in aggregation to reduce sudden changes in the model between rounds.
+
+The analysis of your federated learning experiment shows encouraging progress but also highlights some ongoing challenges, mainly due to differences in data across clients. Over 60 training rounds, the model’s accuracy improved from 8.6% to 57.4%, with the best results in round 47. However, after that, accuracy stopped improving, mainly because some classes were underrepresented.
+
+Some classes, like 7, 8, and 0, performed very well, reaching over 90% accuracy. In contrast, classes 1, 2, and 6 struggled—especially class 2, which never achieved correct predictions because it was missing from most clients’ data. The clients who had more diverse data (like Client 7) helped the model learn better, while clients with very little data (like Client 10) sometimes made the training less stable.
+
+To address these issues, the recommendations focus on three levels. First, immediately increase the minimum number of samples for each class and adjust the loss function so the model pays more attention to the weaker classes. Second, in the medium term, select clients more strategically to ensure rare classes are included, and monitor training stability. Finally, for the long term, consider using semi-supervised learning to help with rare classes and personalize the model for clients with unique data. Adding architectural improvements like residual connections can also help the model learn more effectively.
+
+Overall, while the federated approach is effective, targeted changes are needed to overcome data imbalances and make the model more reliable across all classes.
+
+  I understand that the results obtained are not ideal but I could not achieve higher results due the lack of time.
